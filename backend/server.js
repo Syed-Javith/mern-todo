@@ -12,6 +12,7 @@ const StaticMiddleware = require('./middlewares/staticMiddleware');
 
 dotenv.config();
 const PORT = process.env.PORT
+const port = 5000
 const app = express();
 app.use(Cors);
 app.use(express.json());
@@ -23,6 +24,6 @@ app.use('/',userRoutes);
 
 connectToMongo();
 
-app.listen( PORT , ()=>{
+app.listen( PORT || port , ()=>{
 console.log("server started at port "+PORT);
 })
